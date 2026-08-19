@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  Pipeline de automação de conteúdo baseado em IA, responsável por transformar uma pauta em um carrossel estruturado, renderizado e preparado para aprovação.
+  Pipeline de automação de conteúdo baseado em IA, responsável por transformar uma pauta em um carrossel estruturado, renderizado e preparado para aprovação humana via WhatsApp.
 </p>
 
 <p align="center">
@@ -24,21 +24,33 @@
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://img.shields.io/badge/JavaScript-Workflow%20Logic-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript" /></a>
 </p>
 
+<p align="center">
+  <a href="#-visão-geral">Visão Geral</a> •
+  <a href="#-o-problema">O Problema</a> •
+  <a href="#️-a-solução">A Solução</a> •
+  <a href="#️-arquitetura-do-sistema">Arquitetura</a> •
+  <a href="#-estratégia-de-prompt-engineering">Prompt Engineering</a> •
+  <a href="#-desafios-técnicos">Desafios</a> •
+  <a href="#-próximos-passos">Roadmap</a>
+</p>
+
 ---
 
 ## 📌 Visão Geral
 
-Este projeto automatiza parte do processo de produção de conteúdo da **AgilDev - Automações & I.A**.
+Este projeto automatiza parte do processo de produção de conteúdo da **AgilDev — Automações & I.A**, empresa brasileira de IA e automação para negócios.
 
 A partir de um fluxo agendado, o sistema consulta temas utilizados anteriormente, define um novo tema, gera o roteiro do carrossel com IA, estrutura os slides, processa a renderização dos criativos e salva o conteúdo gerado para as próximas etapas do processo.
 
-O projeto também possui um fluxo separado de aprovação, responsável por receber o novo conteúdo, validar sua origem e encaminhar os materiais para aprovação antes da distribuição.
+O projeto também possui um fluxo separado de aprovação, responsável por receber o novo conteúdo, validar sua origem e encaminhar os materiais para aprovação humana antes da distribuição.
+
+> Este repositório documenta a arquitetura e as decisões técnicas de um pipeline de produção real, como estudo de caso de engenharia de automação com IA aplicada a um problema de negócio recorrente.
 
 ## 🎯 O Problema
 
 A produção recorrente de conteúdo envolve diversas etapas manuais: definição de pautas, criação de roteiros, organização dos slides, renderização dos criativos, armazenamento e envio para aprovação.
 
-O objetivo deste projeto foi transformar esse processo em um pipeline reproduzível, mantendo regras de negócio e pontos de validação ao longo da execução.
+O objetivo deste projeto foi transformar esse processo em um pipeline reproduzível, mantendo regras de negócio e pontos de validação humana ao longo da execução.
 
 ## ⚙️ A Solução
 
@@ -66,36 +78,47 @@ graph TD
     C -->|Define novo tema| D[GPT Roteirista]
     D -->|JSON 5 Slides| E[Parse & Normalização JS]
     E --> F[Loop de Renderização HTML/CSS]
-    F -->|HCTI API| G[Upload de Imagens]
+    F -->|HCTI API| G[Renderiza PNG via HCTI]
     G --> H[GPT Legenda]
     H --> I[(Supabase: Salva Post Completo)]
     I -->|Webhook Trigger| J[Approval Workflow]
     J -->|Validação Secret| K[Uazapi WhatsApp API]
     K --> L[Aprovação Humana]
 ```
+
 ---
 
 ## 🖼️ Visualização dos Criativos Gerados
 
 O pipeline gera automaticamente carrosséis de 5 slides padronizados via código HTML/CSS e os renderiza em imagens de alta definição:
 
+<div align="center">
+
 | Slide 1 (Hook) | Slide 2 (Problema) | Slide 3 (Impacto) | Slide 4 (Solução) | Slide 5 (CTA) |
 | :---: | :---: | :---: | :---: | :---: |
 | <img src="docs/slide1.jpeg" width="160" /> | <img src="docs/slide2.jpeg" width="160" /> | <img src="docs/slide3.jpeg" width="160" /> | <img src="docs/slide4.jpeg" width="160" /> | <img src="docs/slide5.jpeg" width="160" /> |
+
+</div>
 
 ---
 
 ## 🗺️ Mapeamento dos Workflows (n8n)
 
+<div align="center">
+
 ### 1. Fluxo Principal de Geração (`instagram_AgilDev`)
-![Workflow de Geração](docs/workflow-geracao.png)
+<img src="docs/workflow-geracao.png" width="800" />
 
 ### 2. Fluxo de Aprovação via WhatsApp (`AgilDev - Approval Workflow`)
-![Workflow de Aprovação](docs/workflow-aprovacao.png)
+<img src="docs/workflow-aprovacao.png" width="800" />
+
+</div>
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
+
+<div align="center">
 
 | Componente | Tecnologia | Função no Pipeline |
 | :--- | :--- | :--- |
@@ -105,11 +128,53 @@ O pipeline gera automaticamente carrosséis de 5 slides padronizados via código
 | **Renderizador** | HTML/CSS + HCTI API | Conversão de layouts de código em imagens finalizadas |
 | **Mensageria** | Uazapi (WhatsApp API) | Disparo das mídias e botões de validação para aprovação humana |
 
+</div>
+
 ---
 
 ## 🛡️ Destaques de Engenharia e Boas Práticas
 
-- **Tratamento de Dados de IA:** Implementação de tratamento e validação de JSON via JavaScript customizado para prevenir quebra de layout na renderização do HTML.
-- **Arquitetura Desacoplada:** Separação limpa entre o fluxo de geração de conteúdo e o fluxo de mensageria/aprovação via Webhooks.
-- **Camada de Segurança:** Uso de chaves de API restritas via variáveis de ambiente e validação de requisições do webhook por meio de cabeçalhos customizados (`x-webhook-secret`).
-- **Idempotência:** A consulta prévia de pautas no Supabase previne a geração contínua de conteúdos repetidos sobre o mesmo assunto.
+- **Tratamento de Dados de IA:** implementação de tratamento e validação de JSON via JavaScript customizado para prevenir quebra de layout na renderização do HTML.
+- **Arquitetura Desacoplada:** separação limpa entre o fluxo de geração de conteúdo e o fluxo de mensageria/aprovação via Webhooks.
+- **Camada de Segurança:** uso de chaves de API restritas via variáveis de ambiente e validação de requisições do webhook por meio de cabeçalhos customizados (`x-webhook-secret`).
+- **Idempotência:** a consulta prévia de pautas no Supabase previne a geração contínua de conteúdos repetidos sobre o mesmo assunto.
+
+---
+
+## 🧠 Estratégia de Prompt Engineering
+
+O maior desafio do projeto não foi a integração das APIs, mas garantir que a IA produzisse conteúdo consistente, sem repetição e dentro de um contrato de dados rígido.
+
+- **Saída estruturada forçada:** o GPT Roteirista responde exclusivamente em JSON (`response_format: json_object`), eliminando parsing frágil de texto livre.
+- **Anti-duplicação semântica:** o GPT Estrategista recebe os últimos 15 temas publicados e é instruído a rejeitar não só repetições exatas, mas variações semânticas do mesmo ângulo.
+- **Guardrails de conteúdo:** regras explícitas contra estatísticas inventadas, clichês de copywriting genérico e promessas absolutas — o prompt trata a marca como uma fonte confiável, não como gerador de hype.
+- **Camada de validação em código:** um node em JavaScript normaliza a resposta da IA antes de seguir no pipeline, garantindo que campos como `bullets` nunca quebrem a renderização por ausência ou tipo incorreto.
+
+---
+
+## 🔧 Desafios Técnicos
+
+- **Perda intermitente de slides na renderização:** identificado um bug onde um dos 5 slides desaparecia no meio do fluxo de loop + geração de imagem; em investigação/correção no node de agregação.
+- **Custo de geração de imagem via IA:** a geração via `gpt-image-2` foi desativada em produção para controle de custo, substituída por renderização HTML/CSS via HCTI — decisão consciente de trade-off custo x qualidade visual.
+
+---
+
+## 🔮 Próximos Passos
+
+- [ ] Reativar geração de imagens com IA como opção configurável por slide
+- [ ] Workflow de tratamento da resposta SIM/NAO da aprovação via WhatsApp
+- [ ] Métricas de engajamento por tema para retroalimentar o GPT Estrategista
+
+---
+
+<div align="center">
+
+## 👨‍💻 Autor
+
+**Felipe Dourado** — AI Solutions Engineer & Tech Lead na AgilDev
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/felipe-dourado-1b0330213/) 
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/FelipeDourado15) 
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:felipedourado2014.fd@gmail.com)
+
+</div>
