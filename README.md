@@ -166,7 +166,7 @@ O maior desafio do projeto não foi a integração das APIs, mas garantir que a 
 
 ## 👨‍💻 Autor
 
-**Felipe Dourado** — AI Solutions Engineer & Tech Lead na AgilDev
+**Felipe Dourado**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/felipe-dourado-1b0330213/) 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/FelipeDourado15) 
