@@ -72,3 +72,44 @@ graph TD
     I -->|Webhook Trigger| J[Approval Workflow]
     J -->|Validação Secret| K[Uazapi WhatsApp API]
     K --> L[Aprovação Humana]
+
+---
+
+## 🖼️ Visualização dos Criativos Gerados
+
+O pipeline gera automaticamente carrosséis de 5 slides padronizados via código HTML/CSS e os renderiza em imagens de alta definição:
+
+| Slide 1 (Hook) | Slide 2 (Problema) | Slide 3 (Impacto) | Slide 4 (Solução) | Slide 5 (CTA) |
+| :---: | :---: | :---: | :---: | :---: |
+| <img src="docs/slide1.jpeg" width="160" /> | <img src="docs/slide2.jpeg" width="160" /> | <img src="docs/slide3.jpeg" width="160" /> | <img src="docs/slide4.jpeg" width="160" /> | <img src="docs/slide5.jpeg" width="160" /> |
+
+---
+
+## 🗺️ Mapeamento dos Workflows (n8n)
+
+### 1. Fluxo Principal de Geração (`instagram_AgilDev`)
+![Workflow de Geração](docs/workflow-geracao.png)
+
+### 2. Fluxo de Aprovação via WhatsApp (`AgilDev - Approval Workflow`)
+![Workflow de Aprovação](docs/workflow-aprovacao.png)
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+| Componente | Tecnologia | Função no Pipeline |
+| :--- | :--- | :--- |
+| **Orquestrador** | n8n | Automação de fluxos, condicionais e integrações HTTP |
+| **Inteligência Artificial** | OpenAI (`gpt-4o-mini`) | Estratégia de pauta, criação do roteiro JSON e legenda |
+| **Banco de Dados** | Supabase (PostgreSQL) | Consulta de histórico anti-duplicação e armazenamento |
+| **Renderizador** | HTML/CSS + HCTI API | Conversão de layouts de código em imagens finalizadas |
+| **Mensageria** | Uazapi (WhatsApp API) | Disparo das mídias e botões de validação para aprovação humana |
+
+---
+
+## 🛡️ Destaques de Engenharia e Boas Práticas
+
+- **Tratamento de Dados de IA:** Implementação de tratamento e validação de JSON via JavaScript customizado para prevenir quebra de layout na renderização do HTML.
+- **Arquitetura Desacoplada:** Separação limpa entre o fluxo de geração de conteúdo e o fluxo de mensageria/aprovação via Webhooks.
+- **Camada de Segurança:** Uso de chaves de API restritas via variáveis de ambiente e validação de requisições do webhook por meio de cabeçalhos customizados (`x-webhook-secret`).
+- **Idempotência:** A consulta prévia de pautas no Supabase previne a geração contínua de conteúdos repetidos sobre o mesmo assunto.
