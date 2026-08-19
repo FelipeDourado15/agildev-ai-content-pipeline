@@ -6,7 +6,7 @@
   </p>
 </div>
 
-# AgilDev — AI Content Automation Pipeline
+# AgilDev - Automações & I.A — AI Content Automation Pipeline
 
 Pipeline de automação de conteúdo baseado em IA, desenvolvido para estruturar, gerar, renderizar e encaminhar conteúdos para aprovação de forma automatizada.
 
