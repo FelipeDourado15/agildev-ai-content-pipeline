@@ -1,10 +1,4 @@
-<p align="center">
-  <a href="#">
-    <img src="docs/AgilDev - Logo.jpg" alt="AgilDev Logo" width="220" />
-  </a>
-</p>
-
-<h1 align="center">AgilDev — AI Content Automation Pipeline</h1>
+<h1 align="center">AI Content Pipeline — Estudo de Caso em Automação com IA</h1>
 
 <p align="center">
   <b>Strategy</b> &nbsp;•&nbsp; 
@@ -14,7 +8,7 @@
 </p>
 
 <p align="center">
-  Pipeline de automação de conteúdo baseado em IA, responsável por transformar uma pauta em um carrossel estruturado, renderizado e preparado para aprovação humana via WhatsApp.
+  Estudo de caso técnico de um pipeline de automação de conteúdo baseado em IA, construído com n8n, aplicado a um fluxo real de produção de carrosséis para redes sociais.
 </p>
 
 <p align="center">
@@ -38,19 +32,19 @@
 
 ## 📌 Visão Geral
 
-Este projeto automatiza parte do processo de produção de conteúdo da **AgilDev — Automações & I.A**, empresa brasileira de IA e automação para negócios.
+Este repositório documenta um pipeline de automação de conteúdo baseado em IA que desenvolvi para estudar, na prática, como estruturar um fluxo de produção real usando orquestração de automação, LLMs e engenharia de prompt.
 
 A partir de um fluxo agendado, o sistema consulta temas utilizados anteriormente, define um novo tema, gera o roteiro do carrossel com IA, estrutura os slides, processa a renderização dos criativos e salva o conteúdo gerado para as próximas etapas do processo.
 
 O projeto também possui um fluxo separado de aprovação, responsável por receber o novo conteúdo, validar sua origem e encaminhar os materiais para aprovação humana antes da distribuição.
 
-> Este repositório documenta a arquitetura e as decisões técnicas de um pipeline de produção real, como estudo de caso de engenharia de automação com IA aplicada a um problema de negócio recorrente.
+> Este repositório documenta a arquitetura e as decisões técnicas de um pipeline aplicado a um cenário real de produção de conteúdo, como estudo de engenharia de automação com IA — parte da minha evolução técnica na área.
 
 ## 🎯 O Problema
 
 A produção recorrente de conteúdo envolve diversas etapas manuais: definição de pautas, criação de roteiros, organização dos slides, renderização dos criativos, armazenamento e envio para aprovação.
 
-O objetivo deste projeto foi transformar esse processo em um pipeline reproduzível, mantendo regras de negócio e pontos de validação humana ao longo da execução.
+O objetivo deste estudo foi transformar esse processo em um pipeline reproduzível, mantendo regras de negócio e pontos de validação humana ao longo da execução.
 
 ## ⚙️ A Solução
 
@@ -68,6 +62,7 @@ O processo foi dividido em etapas independentes:
 10. Encaminhamento do conteúdo via Webhook para a camada de aprovação.
 
 ---
+
 
 ## 🏗️ Arquitetura do Sistema
 
