@@ -1,3 +1,11 @@
+<div align="center" style="background-color: #051d41; padding: 40px; border-radius: 10px; margin-bottom: 20px;">
+  <img src="docs/AgilDev-Logo.png" alt="AgilDev Logo" width="280" />
+  <h2 style="color: #ffffff; margin-top: 15px; font-family: sans-serif; font-weight: 600;">AI Content Automation Pipeline</h2>
+  <p style="color: #a0aec0; font-family: sans-serif; font-size: 14px;">
+    <code>Strategy</code> &nbsp;→&nbsp; <code>Generation</code> &nbsp;→&nbsp; <code>Rendering</code> &nbsp;→&nbsp; <code>Approval</code>
+  </p>
+</div>
+
 # AgilDev — AI Content Automation Pipeline
 
 Pipeline de automação de conteúdo baseado em IA, desenvolvido para estruturar, gerar, renderizar e encaminhar conteúdos para aprovação de forma automatizada.
