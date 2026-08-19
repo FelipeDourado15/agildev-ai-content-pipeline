@@ -1,0 +1,629 @@
+{
+  "name": "instagram_AgilDev",
+  "nodes": [
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "role": "system",
+              "content": "=Você é o estrategista de conteúdo da AgilDev, empresa brasileira especializada em inteligência artificial, automação e soluções digitais para negócios.\n\nSua função é escolher UM ÚNICO TEMA PARA UM CARROSSEL DO INSTAGRAM da AgilDev.\n\nOBJETIVO:\nGerar um tema que tenha potencial de educar empresários e profissionais e, ao mesmo tempo, reforçar a autoridade da AgilDev em IA e automação.\n\nPÚBLICO:\n- empresários\n- gestores\n- donos de pequenas e médias empresas\n- equipes comerciais\n- equipes de atendimento\n- profissionais que querem automatizar processos\n- empresas que querem reduzir tarefas manuais e ganhar produtividade\n\nPILARES DE CONTEÚDO:\n1. Inteligência artificial aplicada a negócios\n2. Automação de processos\n3. Produtividade empresarial\n4. Redução de tarefas manuais\n5. Atendimento e vendas com IA\n6. Geração e qualificação de leads\n7. Processos internos\n8. Erros comuns ao implementar IA\n9. Oportunidades de automação que as empresas ignoram\n10. Comparações entre processos manuais e automatizados\n11. Casos de uso práticos de IA\n12. Estratégias para empresas aproveitarem melhor a IA\n\nNÃO GERE temas sobre:\n- música\n- filmes\n- séries\n- celebridades\n- esportes\n- política\n- religião\n- cultura em geral\n- entretenimento\n- assuntos que não tenham relação direta com negócios, IA, automação, produtividade ou tecnologia aplicada\n\nREGRA PRINCIPAL:\nEscolha EXATAMENTE UM tema novo para UM carrossel.\n\nOs temas abaixo são referências de conteúdos que já foram usados recentemente.\n\nÉ PROIBIDO:\n- repetir exatamente um tema da lista\n- criar uma pequena variação de um tema da lista\n- trocar apenas algumas palavras de um tema já usado\n- produzir um tema semanticamente muito parecido com um tema já usado\n- retornar qualquer tema da lista como resposta\n- retornar uma lista de opções\n- retornar mais de um tema\n\nTEMAS USADOS RECENTEMENTE:\n{{ $json.temas_recentes.join('\\n- ') }}\n\nO NOVO tema deve:\n- ser diferente dos temas recentes\n- ter relação direta com AgilDev\n- ser específico\n- ter utilidade prática\n- gerar curiosidade\n- poder ser transformado em um carrossel educativo de 5 slides\n- ter potencial de gerar comentários, compartilhamentos ou salvamentos\n- abordar uma situação concreta de negócio\n- evitar generalidades\n\nEvite temas genéricos como:\n\"Como a IA está mudando o mundo\"\n\"A importância da tecnologia\"\n\"O futuro da inteligência artificial\"\n\nPrefira ângulos concretos como:\n\"5 tarefas do seu comercial que já deveriam estar automatizadas\"\n\"3 processos da sua empresa que você ainda faz manualmente sem perceber\"\n\"Como usar IA para responder leads mais rápido\"\n\"7 sinais de que sua empresa está pronta para automatizar\"\n\nAntes de responder, compare mentalmente o tema escolhido com TODOS os temas recentes fornecidos.\n\nSe houver semelhança forte de assunto, ângulo ou intenção, descarte a ideia e escolha outra.\n\nResponda SOMENTE com UM tema novo, em uma única frase.\n\nNão explique sua escolha.\nNão faça perguntas.\nNão apresente alternativas.\nNão use listas."
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.3,
+      "position": [
+        -48,
+        0
+      ],
+      "id": "544c97cf-487e-422b-96aa-4acc52c30357",
+      "name": "GPT Estrategista"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "role": "system",
+              "content": "=Você é um Copywriter B2B sênior especializado em IA, automação de processos e produtividade empresarial para a AgilDev, empresa brasileira de tecnologia.\n\nSua função é transformar o tema recebido em UM ÚNICO carrossel educativo de 5 slides para o Instagram da AgilDev.\n\nTEMA RECEBIDO:\n{{ $json.tema }}\n\nREGRA FUNDAMENTAL:\nO tema recebido já foi definido pelo estrategista.\nVocê DEVE trabalhar exclusivamente com esse tema.\n\nNÃO:\n- altere o tema\n- substitua o tema\n- combine com outro assunto\n- invente um novo tema\n- desvie para outro assunto apenas porque existe uma solução tecnológica interessante\n\nO campo \"tema\" da resposta deve reproduzir EXATAMENTE o tema recebido.\n\n============================================================\nESTRUTURA OBRIGATÓRIA\n============================================================\n\nSLIDE 1 — HOOK (CAPA PÔSTER DE ALTO IMPACTO)\nFunção: interromper a atenção e criar curiosidade instantânea.\n- O título será exibido em fonte alta e caixa alta (estilo pôster).\n- Deve ser forte, direto e chamar a atenção imediatamente.\n\nSLIDE 2 — PROBLEMA\nFunção: mostrar uma dor real e reconhecível de negócio.\n\nSLIDE 3 — CONSEQUÊNCIA\nFunção: mostrar o impacto do problema no negócio.\n\nSLIDE 4 — SOLUÇÃO\nFunção: apresentar uma aplicação prática de IA e/ou automação.\n\nSLIDE 5 — CTA (FECHAMENTO E AÇÃO)\nFunção: explicar de forma clara o próximo passo e incentivar a conversa com a AgilDev.\n- Exige uma explicação mais completa e robusta no subtítulo (entre 20 e 35 palavras).\n\n============================================================\nREGRAS DE COPY\n============================================================\n\nEscreva como uma empresa que entende de negócio e tecnologia.\n\nFale com:\n- empresários\n- gestores\n- donos de pequenas e médias empresas\n- líderes de equipes\n- profissionais responsáveis por processos, vendas e atendimento\n\nUse:\n- linguagem direta\n- exemplos concretos\n- situações reais de negócio\n- verbos de ação\n- linguagem empresarial simples\n\nEvite:\n- jargão técnico desnecessário\n- frases motivacionais\n- clichês de marketing\n- exageros\n- promessas absolutas\n- linguagem genérica\n\nNÃO use estas palavras:\n\"Descubra\"\n\"Desvende\"\n\"Transforme\"\n\"Revolucione\"\n\"Alavanque\"\n\"Embarque\"\n\nNão invente:\n- estatísticas\n- percentuais\n- números\n- resultados\n- depoimentos\n- casos de sucesso\n\nNão diga que IA ou automação elimina completamente o trabalho humano.\nNão trate IA como solução universal.\nSempre conecte a tecnologia a uma tarefa, processo, problema ou decisão concreta.\n\n============================================================\nDINAMISMO DO HOOK (SLIDE 1)\n============================================================\n\nO hook deve escolher UM ângulo adequado ao tema:\n- pergunta incômoda\n- erro comum\n- oportunidade perdida\n- tarefa que não deveria mais ser manual\n- situação reconhecível pelo empresário\n- consequência inesperada\n- contraste entre processo atual e processo desejável\n\nNão use o mesmo padrão de hook em todos os carrosséis.\n\nEvite começar repetidamente com:\n\"Você sabia...\"\n\"Sua empresa...\"\n\"Descubra...\"\n\n============================================================\nPROBLEMA\n============================================================\n\nMostre uma dor concreta relacionada ao tema.\n\nPriorize situações como:\n- tempo perdido\n- retrabalho\n- atrasos\n- falhas de processo\n- perda de oportunidades\n- dificuldade de escala\n- tarefas repetitivas\n- dependência de processos manuais\n- falta de visibilidade\n- gargalos operacionais\n\nNão repita simplesmente o hook.\nO problema deve aprofundar o que está acontecendo na empresa.\n\n============================================================\nCONSEQUÊNCIA\n============================================================\n\nMostre o impacto do problema em uma ou mais dimensões:\n- tempo\n- custo\n- produtividade\n- receita\n- experiência do cliente\n- qualidade\n- capacidade operacional\n- escala\n\nNão invente números.\nNão repita os bullets do slide 2.\nO slide 3 deve responder: \"O que acontece com o negócio quando isso continua?\"\n\n============================================================\nSOLUÇÃO\n============================================================\n\nApresente uma abordagem prática de IA e/ou automação.\n\nSempre que possível, explique:\n1. O que pode ser automatizado.\n2. Como a automação ou IA entra no processo.\n3. Qual resultado operacional a mudança busca melhorar.\n\nNão trate tecnologia como mágica.\nA solução deve ser plausível para uma empresa real.\n\n============================================================\nCTA (SLIDE 5 - TEXTO COMPLETO)\n============================================================\n\nO CTA deve convidar o leitor a analisar aquele processo específico com a AgilDev.\n\n- O título deve ser direto e incisivo (máx. 60 caracteres).\n- O subtítulo DEVE SER COMPLETO (20 a 35 palavras), detalhando o valor de uma conversa sobre automação/IA aplicadas à realidade dele.\n\n============================================================\nTÍTULOS E LIMITES DE CARACTERES\n============================================================\n\nLimites de tamanho dos títulos:\n- hook (slide 1): entre 30 e 65 caracteres (para preencher bem a capa em fonte gigante)\n- problema (slide 2): máximo 55 caracteres\n- consequencia (slide 3): máximo 65 caracteres\n- solucao (slide 4): máximo 55 caracteres\n- cta (slide 5): máximo 60 caracteres\n\n============================================================\nGLOW (DESTAQUE CIANO)\n============================================================\n\nVocê pode destacar UMA única palavra ou expressão curta do título com:\n\n**palavra**\n\nEsse destaque ativa o efeito ciano brilhante.\n\nREGRAS:\n- máximo de 1 destaque por título\n- nunca destaque o título inteiro\n- o destaque é opcional\n- prefira destacar palavras fortes (ex: **PROCEDIMENTO**, **GARGALO**, **PERDA**)\n\nExemplo:\n\"Sua equipe perde **horas** com isso?\"\n\n============================================================\nBULLETS E SUBTÍTULOS\n============================================================\n\nApenas os slides:\n- problema (2)\n- consequencia (3)\n- solucao (4)\n\npodem usar bullets.\n\nHook (1) e CTA (5):\n- NUNCA usam bullets.\n- Sempre usam subtitulo.\n\nRegras para Bullets (Slides 2, 3 e 4):\n- Preferencialmente 3 bullets por slide.\n- Cada bullet deve ter entre 8 e 14 palavras (garante bom preenchimento visual).\n- Quando usar bullets: deixar \"subtitulo\": \"\"\n\nRegras para Subtítulos (Slides 1 e 5):\n- Quando usar subtítulo: deixar \"bullets\": []\n- NUNCA preencher subtitulo e bullets no mesmo slide.\n\n============================================================\nIMAGENS (REGRA RÍGIDA DE CUSTO)\n============================================================\n\nNENHUM slide deve usar imagens geradas por IA.\n\nREGRA OBRIGATÓRIA:\n- Todos os slides DEVEM ter: \"precisa_imagem\": false\n- Todos os slides DEVEM ter: \"prompt_imagem\": \"\"\n\n============================================================\nREGRA DE PROGRESSÃO\n============================================================\n\nCada slide deve acrescentar uma informação nova.\n\nO carrossel precisa criar progressão:\n\nATENÇÃO (Slide 1)\n↓\nDOR (Slide 2)\n↓\nIMPACTO (Slide 3)\n↓\nAPLICAÇÃO (Slide 4)\n↓\nAÇÃO (Slide 5)\n\n============================================================\nREVISÃO INTERNA\n============================================================\n\nAntes de responder, confira:\n1. Existem exatamente 5 slides?\n2. A ordem está correta?\n3. O campo \"tema\" é exatamente igual ao tema recebido?\n4. Todos os slides permanecem dentro do tema?\n5. Existe progressão lógica?\n6. Hook e CTA não possuem bullets e têm subtítulos bem desenvolvidos?\n7. O Slide 5 possui um subtítulo robusto (20 a 35 palavras)?\n8. Nunca existem subtitulo e bullets preenchidos ao mesmo tempo?\n9. Os títulos respeitam os limites e o Slide 1 tem bom tamanho para a capa?\n10. Cada título possui no máximo 1 destaque ** **?\n11. TODOS os slides possuem precisa_imagem=false e prompt_imagem=\"\"?\n12. Não existem estatísticas ou números inventados?\n13. Não existem clichês proibidos?\n\n============================================================\nSAÍDA\n============================================================\n\nResponda SOMENTE com JSON válido.\n\nFormato:\n\n{\n  \"tema\": \"\",\n  \"objetivo\": \"\",\n  \"publico\": \"\",\n  \"slides\": [\n    {\n      \"numero\": 1,\n      \"tipo\": \"hook\",\n      \"titulo\": \"\",\n      \"subtitulo\": \"\",\n      \"bullets\": [],\n      \"precisa_imagem\": false,\n      \"prompt_imagem\": \"\"\n    },\n    {\n      \"numero\": 2,\n      \"tipo\": \"problema\",\n      \"titulo\": \"\",\n      \"subtitulo\": \"\",\n      \"bullets\": [],\n      \"precisa_imagem\": false,\n      \"prompt_imagem\": \"\"\n    },\n    {\n      \"numero\": 3,\n      \"tipo\": \"consequencia\",\n      \"titulo\": \"\",\n      \"subtitulo\": \"\",\n      \"bullets\": [],\n      \"precisa_imagem\": false,\n      \"prompt_imagem\": \"\"\n    },\n    {\n      \"numero\": 4,\n      \"tipo\": \"solucao\",\n      \"titulo\": \"\",\n      \"subtitulo\": \"\",\n      \"bullets\": [],\n      \"precisa_imagem\": false,\n      \"prompt_imagem\": \"\"\n    },\n    {\n      \"numero\": 5,\n      \"tipo\": \"cta\",\n      \"titulo\": \"\",\n      \"subtitulo\": \"\",\n      \"bullets\": [],\n      \"precisa_imagem\": false,\n      \"prompt_imagem\": \"\"\n    }\n  ],\n  \"legenda\": \"\",\n  \"cta\": \"\",\n  \"hashtags\": []\n}"
+            },
+            {
+              "content": "={{ $json.tema }}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {
+          "textFormat": {
+            "textOptions": {
+              "type": "json_object"
+            }
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.3,
+      "position": [
+        560,
+        0
+      ],
+      "id": "2b352d1b-ac5e-4d5e-829a-414f70aa1831",
+      "name": "GPT Roteirista"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "posts_historico",
+        "limit": 15,
+        "filters": {
+          "conditions": []
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -496,
+        0
+      ],
+      "id": "b6dd541a-8d55-4999-b6ab-c4c3e64fb063",
+      "name": "Buscar Temas Recentes",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Modo do node: \"Run Once for Each Item\"\n\nconst raw = $json.output[0].content[0].text;\n\nconst carrossel = typeof raw === 'string'\n  ? JSON.parse(raw.replace(/```json\\s*|```/g, '').trim())\n  : raw;\n\n// trava de segurança: garante que bullets sempre existe como array,\n// mesmo se o modelo esquecer de incluir o campo em algum slide\ncarrossel.slides = carrossel.slides.map(slide => ({\n  ...slide,\n  bullets: Array.isArray(slide.bullets) ? slide.bullets : []\n}));\n\nreturn { json: carrossel };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        912,
+        0
+      ],
+      "id": "9c41644f-6c15-4dcb-af70-894bde03bbb3",
+      "name": "Parse JSON Carrossel"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "slides",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        0
+      ],
+      "id": "8f237c92-85e4-495a-99dd-d4dc944de237",
+      "name": "Split Slides"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "025ded02-eb13-46fd-a937-02cd881aad85",
+              "leftValue": "={{ $json.precisa_imagem }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1328,
+        0
+      ],
+      "id": "0883c7de-5945-4477-a642-8f98b8963acb",
+      "name": "IF Precisa Imagem"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/images/generations",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"gpt-image-2\",\n  \"prompt\": \"{{ 'Fotografia corporativa brasileira realista. Composição vertical. Alta nitidez, profundidade de campo suave, espaço negativo amplo e limpo no lado esquerdo para sobreposição de texto, sem texto, sem letras, sem números, sem logotipo, sem marca d’água, sem elementos importantes nas bordas. ' + $json.prompt_imagem }}\",\n  \"size\": \"1024x1536\",\n  \"quality\": \"high\",\n  \"output_format\": \"jpeg\",\n  \"output_compression\": 90\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        1616,
+        -112
+      ],
+      "id": "ddec853a-1369-49b0-b5eb-2e0c76a19ddb",
+      "name": "HTTP Request",
+      "disabled": true
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2064,
+        -16
+      ],
+      "id": "eb716212-8da1-4b2d-b0ef-2cb86b1fddb1",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// ============================================================\n// Node: \"Montar HTML do Slide\" (Versão Redesenhada - Centralizada)\n// ============================================================\n\n// ============================================================\n// CONFIGURAÇÕES\n// ============================================================\n\nconst LOGO_URL =\n  'https://YOUR_SUPABASE_ID.supabase.co/storage/v1/object/public/agildev-assets/agildev-logo-transparent.png';\n\nconst MASCOTE_URL =\n  'https://YOUR_SUPABASE_ID.supabase.co/storage/v1/object/public/agildev-assets/agildev-mascote-transparent.png';\n\nconst TAG_POR_TIPO = {\n  problema: 'O PROBLEMA',\n  solucao: 'A SOLUÇÃO',\n  consequencia: 'O IMPACTO'\n};\n\nconst TOTAL_SLIDES = 5;\n\n// ============================================================\n// DADOS DO SLIDE\n// ============================================================\n\nconst item = $input.item.json;\n\nconst numero = Number(item.numero);\nconst tipo = typeof item.tipo === 'string' ? item.tipo.trim() : '';\nconst titulo = typeof item.titulo === 'string' ? item.titulo.trim() : '';\n\nlet subtitulo = typeof item.subtitulo === 'string' ? item.subtitulo.trim() : '';\n\nlet bullets = Array.isArray(item.bullets)\n  ? item.bullets\n      .filter((b) => typeof b === 'string')\n      .map((b) => b.trim())\n      .filter(Boolean)\n  : [];\n\nconst precisaImagem = item.precisa_imagem === true;\nconst imagemBase64 = typeof item.imagem_base64 === 'string' ? item.imagem_base64.trim() : '';\n\nconst activeIndex = numero - 1;\n\n// ============================================================\n// VALIDAÇÕES BÁSICAS E FALLBACKS\n// ============================================================\n\nif (!Number.isInteger(numero) || numero < 1 || numero > TOTAL_SLIDES) {\n  throw new Error(`Número de slide inválido: \"${item.numero}\".`);\n}\n\nif (!tipo) {\n  throw new Error(`Slide ${numero}: tipo não informado.`);\n}\n\nif (!titulo) {\n  throw new Error(`Slide ${numero}: título vazio.`);\n}\n\nconst TIPOS_VALIDOS = ['hook', 'problema', 'consequencia', 'solucao', 'cta'];\n\nif (!TIPOS_VALIDOS.includes(tipo)) {\n  throw new Error(`Slide ${numero}: tipo inválido \"${tipo}\".`);\n}\n\n// 1. Tratamento para HOOK e CTA\nif (tipo === 'hook' || tipo === 'cta') {\n  bullets = [];\n  if (!subtitulo) {\n    subtitulo = 'Entenda como otimizar os processos e a eficiência operacional da sua empresa com inteligência artificial.';\n  }\n}\n\n// 2. Tratamento para Slides de Conteúdo\nif (tipo === 'problema' || tipo === 'consequencia' || tipo === 'solucao') {\n  if (bullets.length > 0) {\n    subtitulo = ''; \n  } else if (subtitulo) {\n    bullets = []; \n  } else {\n    bullets = [\n      'Análise detalhada dos gargalos do fluxo operacional.',\n      'Aplicação de otimizações para aumento de produtividade.'\n    ];\n  }\n}\n\nif (precisaImagem && !imagemBase64) {\n  throw new Error(`Slide ${numero}: precisa_imagem=true, mas imagem_base64 está vazia.`);\n}\n\n// ============================================================\n// HELPERS DE LAYOUT\n// ============================================================\n\nfunction countChars(text) {\n  return [...(text || '')].length;\n}\n\nfunction getTituloSize(tipo, titulo) {\n  const length = countChars(String(titulo || '').replace(/\\*\\*/g, ''));\n\n  if (tipo === 'hook') {\n    if (length > 50) return 72;\n    if (length > 35) return 82;\n    return 92;\n  }\n\n  if (tipo === 'problema' || tipo === 'solucao') {\n    if (length > 48) return 48;\n    if (length > 38) return 52;\n    return 58;\n  }\n\n  if (length > 58) return 50;\n  if (length > 46) return 56;\n  return 62;\n}\n\nfunction getTituloLineHeight(tipo, fontSize) {\n  if (tipo === 'hook') return 1.02;\n  if (fontSize <= 48) return 1.10;\n  return 1.12;\n}\n\nfunction getBulletSize(bullets) {\n  const count = Array.isArray(bullets) ? bullets.length : 0;\n\n  if (count >= 4) return 26;\n  if (count === 3) return 28;\n  return 32;\n}\n\nfunction getBulletSpacing(bullets) {\n  const count = Array.isArray(bullets) ? bullets.length : 0;\n\n  if (count >= 4) return 16;\n  if (count === 3) return 20;\n  return 24;\n}\n\nfunction getContentWidth(hasImage) {\n  return hasImage ? '60%' : '100%';\n}\n\nfunction getBackgroundPosition(index) {\n  const positions = ['0% 0%', '25% 0%', '50% 0%', '75% 0%', '100% 0%'];\n  return positions[index] || '50% 0%';\n}\n\nfunction getProgressPercent(numero) {\n  return Math.min(100, Math.max(20, (numero / TOTAL_SLIDES) * 100));\n}\n\n// ============================================================\n// ESCAPE HTML E GLOW\n// ============================================================\n\nfunction escapeHtml(value) {\n  if (value === null || value === undefined) return '';\n\n  return String(value)\n    .replace(/&/g, '&amp;')\n    .replace(/</g, '&lt;')\n    .replace(/>/g, '&gt;')\n    .replace(/\"/g, '&quot;')\n    .replace(/'/g, '&#039;');\n}\n\nfunction applyGlow(text) {\n  if (!text) return '';\n\n  let safeText = escapeHtml(text);\n  safeText = safeText.replace(/\\*\\*(.+?)\\*\\*/g, '<span class=\"glow\">$1</span>');\n\n  return safeText;\n}\n\n// ============================================================\n// RENDERS\n// ============================================================\n\nfunction renderBullets(bullets, fontSize, spacing) {\n  if (!Array.isArray(bullets) || bullets.length === 0) return '';\n\n  const items = bullets\n    .map((bullet) => {\n      let safeBullet = escapeHtml(bullet);\n      safeBullet = safeBullet.replace(/\\*\\*(.+?)\\*\\*/g, '<strong>$1</strong>');\n\n      return `\n        <li style=\"font-size:${fontSize}px; margin-bottom:${spacing}px;\">\n          ${safeBullet}\n        </li>\n      `;\n    })\n    .join('');\n\n  return `\n    <ul class=\"bullets\">\n      ${items}\n    </ul>\n  `;\n}\n\nfunction progressBar(progressPercent) {\n  return `\n    <div class=\"progress-bar-container\">\n      <div class=\"progress-bar-fill\" style=\"width:${progressPercent}%\"></div>\n    </div>\n  `;\n}\n\nfunction topbar(tipo) {\n  return `\n    <div class=\"topbar\">\n      <div>\n        <img class=\"logo-img\" src=\"${LOGO_URL}\" alt=\"AgilDev\">\n      </div>\n      ${tipo === 'hook' ? '<div class=\"year-badge\">2026</div>' : ''}\n    </div>\n  `;\n}\n\nfunction bottombar(currentSlide, tipo) {\n  if (tipo === 'hook') {\n    return `\n      <div class=\"bottombar hook-bottom\">\n        <div class=\"action-item\">\n          <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg>\n          <span>Compartilhe</span>\n        </div>\n        <div class=\"action-item\">\n          <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z\"/></svg>\n          <span>Salve</span>\n        </div>\n      </div>\n    `;\n  }\n\n  return `\n    <div class=\"bottombar\">\n      <div class=\"slide-counter\">\n        SLIDE ${currentSlide} / ${TOTAL_SLIDES}\n      </div>\n    </div>\n  `;\n}\n\nfunction circuit(corner) {\n  return `\n    <div class=\"circuit circuit-${corner}\">\n      <svg width=\"150\" height=\"150\" viewBox=\"0 0 150 150\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M15 135 L15 55 L60 55 L60 15 L135 15\" stroke=\"rgba(255,255,255,0.25)\" stroke-width=\"2\" fill=\"none\"/>\n        <circle cx=\"15\" cy=\"135\" r=\"5\" fill=\"rgba(47,216,245,0.7)\"/>\n        <circle cx=\"60\" cy=\"55\" r=\"3.5\" fill=\"rgba(255,255,255,0.4)\"/>\n        <circle cx=\"135\" cy=\"15\" r=\"5\" fill=\"rgba(47,216,245,0.7)\"/>\n      </svg>\n    </div>\n  `;\n}\n\nfunction tag(tipo) {\n  const label = TAG_POR_TIPO[tipo];\n  if (!label) return '';\n\n  return `\n    <div class=\"tag\">\n      ${label}\n    </div>\n  `;\n}\n\n// ============================================================\n// CONFIGURAÇÕES DINÂMICAS\n// ============================================================\n\nconst hasImg = precisaImagem && imagemBase64.length > 0;\nconst tituloSize = getTituloSize(tipo, titulo);\nconst tituloLineHeight = getTituloLineHeight(tipo, tituloSize);\nconst bulletSize = getBulletSize(bullets);\nconst bulletSpacing = getBulletSpacing(bullets);\nconst contentWidth = getContentWidth(hasImg);\nconst bgPosition = getBackgroundPosition(activeIndex);\nconst progressPercent = getProgressPercent(numero);\n\nconst tituloHtml = applyGlow(titulo);\nconst subtituloHtml = escapeHtml(subtitulo);\nconst bulletsHtml = renderBullets(bullets, bulletSize, bulletSpacing);\n\nconst conteudoApoioHtml =\n  bullets.length > 0\n    ? bulletsHtml\n    : `\n        <div class=\"subtitulo\">\n          ${subtituloHtml}\n        </div>\n      `;\n\n// ============================================================\n// CSS\n// ============================================================\n\nconst css = `\n  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;700;800&display=swap');\n\n  :root {\n    --navy-deep: #030712;\n    --navy-base: #071328;\n    --navy-mid: #0D2248;\n    --cyan-glow: #00E5FF;\n    --cyan-soft: #7FE3F7;\n    --white: #FFFFFF;\n    --white-dim: #D1E0ED;\n  }\n\n  * {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n  }\n\n  .slide {\n    width: 1080px;\n    height: 1350px;\n    position: relative;\n    background: radial-gradient(\n      circle at top center,\n      var(--navy-mid) 0%,\n      var(--navy-base) 55%,\n      var(--navy-deep) 100%\n    );\n    background-size: 100% 100%;\n    overflow: hidden;\n    color: var(--white);\n    font-family: 'Inter', Arial, sans-serif;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n  }\n\n  .progress-bar-container {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 8px;\n    background: rgba(255,255,255,0.08);\n    z-index: 100;\n  }\n\n  .progress-bar-fill {\n    height: 100%;\n    background: linear-gradient(90deg, var(--cyan-soft), var(--cyan-glow));\n    box-shadow: 0 0 15px var(--cyan-glow);\n  }\n\n  .circuit {\n    position: absolute;\n    z-index: 1;\n    opacity: 0.6;\n  }\n\n  .circuit-tl { top: 40px; left: 40px; }\n  .circuit-br { bottom: 40px; right: 40px; transform: rotate(180deg); }\n\n  .topbar {\n    position: absolute;\n    top: 55px;\n    left: 64px;\n    right: 64px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    z-index: 50;\n  }\n\n  .logo-img {\n    height: 180px;\n    width: auto;\n    display: block;\n  }\n\n  .year-badge {\n    border: 2px solid rgba(255,255,255,0.7);\n    padding: 8px 28px;\n    border-radius: 40px;\n    font-size: 22px;\n    font-weight: 700;\n    color: var(--white);\n    letter-spacing: 1px;\n  }\n\n  /* POSICIONAMENTO CENTRALIZADO VERTICALMENTE */\n  .content {\n    position: relative;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    width: ${contentWidth};\n    padding: 0 72px;\n    z-index: 10;\n  }\n\n  .content-card {\n    background: rgba(10, 26, 51, 0.45);\n    border: 1.5px solid rgba(47, 216, 245, 0.25);\n    border-radius: 24px;\n    padding: 48px;\n    backdrop-filter: blur(12px);\n    width: 100%;\n    box-shadow: 0 20px 50px rgba(0,0,0,0.4);\n  }\n\n  .tag {\n    display: inline-block;\n    background: var(--cyan-glow);\n    color: var(--navy-deep);\n    font-size: 22px;\n    font-weight: 800;\n    letter-spacing: 1.5px;\n    text-transform: uppercase;\n    padding: 8px 22px;\n    border-radius: 8px;\n    margin-bottom: 24px;\n  }\n\n  .titulo {\n    font-family: 'Inter', sans-serif;\n    font-size: ${tituloSize}px;\n    font-weight: 800;\n    line-height: ${tituloLineHeight};\n    letter-spacing: -1px;\n    text-transform: uppercase;\n    margin-bottom: 28px;\n    word-break: normal;\n    overflow-wrap: break-word;\n  }\n\n  /* ESTILO ESPECIAL DA CAPA (HOOK) */\n  .slide-hook .content-card {\n    background: transparent;\n    border: none;\n    padding: 0;\n    box-shadow: none;\n    backdrop-filter: none;\n  }\n\n  .slide-hook .titulo {\n    font-family: 'Oswald', sans-serif;\n    font-weight: 700;\n    line-height: 1.05;\n    letter-spacing: 0px;\n    color: var(--white);\n    text-shadow: 0 10px 30px rgba(0,0,0,0.5);\n  }\n\n  .titulo .glow {\n    color: var(--cyan-glow);\n    text-shadow: 0 0 25px rgba(0, 229, 255, 0.8), 0 0 50px rgba(0, 229, 255, 0.4);\n  }\n\n  .subtitulo {\n    font-size: 32px;\n    font-weight: 400;\n    line-height: 1.5;\n    color: var(--white-dim);\n    max-width: 100%;\n    overflow-wrap: break-word;\n  }\n\n  .slide-hook .subtitulo {\n    font-size: 34px;\n    color: var(--white-dim);\n    margin-top: 10px;\n  }\n\n  .bullets {\n    list-style: none;\n    margin-top: 10px;\n    width: 100%;\n  }\n\n  .bullets li {\n    line-height: 1.4;\n    color: var(--white-dim);\n    padding-left: 36px;\n    position: relative;\n    overflow-wrap: break-word;\n  }\n\n  .bullets li::before {\n    content: '●';\n    position: absolute;\n    left: 0;\n    top: 0px;\n    color: var(--cyan-glow);\n    font-size: 22px;\n  }\n\n  .bullets li strong {\n    color: var(--white);\n    font-weight: 700;\n  }\n\n  .swipe-pill {\n    display: inline-flex;\n    align-items: center;\n    gap: 14px;\n    border: 2px solid rgba(255,255,255,0.8);\n    border-radius: 40px;\n    padding: 14px 32px;\n    margin-top: 40px;\n    width: fit-content;\n    background: rgba(0,0,0,0.2);\n  }\n\n  .swipe-pill .txt {\n    font-size: 24px;\n    font-weight: 600;\n    color: var(--white);\n  }\n\n  .bottombar {\n    position: absolute;\n    bottom: 50px;\n    left: 64px;\n    right: 64px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    z-index: 50;\n  }\n\n  .hook-bottom {\n    justify-content: space-between;\n    border-top: 1px solid rgba(255,255,255,0.15);\n    padding-top: 25px;\n  }\n\n  .action-item {\n    display: flex;\n    align-items: center;\n    gap: 10px;\n    color: var(--white);\n    font-size: 22px;\n    font-weight: 500;\n  }\n\n  .slide-counter {\n    font-size: 20px;\n    color: var(--cyan-soft);\n    font-weight: 700;\n    letter-spacing: 1.5px;\n  }\n\n  /* IMAGENS E MASCOTE */\n  .img-slot {\n    position: absolute;\n    right: 0;\n    top: 0;\n    bottom: 0;\n    width: 42%;\n    z-index: 2;\n    overflow: hidden;\n  }\n\n  .img-slot img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n  }\n\n  .img-slot::after {\n    content: '';\n    position: absolute;\n    inset: 0;\n    background: linear-gradient(\n      to right,\n      var(--navy-deep) 0%,\n      rgba(3,7,18,0.5) 40%,\n      transparent 100%\n    );\n  }\n\n  /* CENTRALIZAÇÃO DO SLIDE DE CTA (SLIDE 5) */\n  .slide-cta {\n    justify-content: center;\n    align-items: center;\n  }\n\n  .slide-cta .content {\n    width: 100%;\n    align-items: center;\n    margin-top: -60px;\n  }\n\n  .slide-cta .content-card {\n    text-align: center;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n\n  .slide-cta .mascot-slot {\n    position: absolute;\n    bottom: 90px;\n    left: 50%;\n    transform: translateX(-50%);\n    width: 260px;\n    z-index: 20;\n    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.7));\n  }\n\n  .slide-cta .mascot-slot img {\n    width: 100%;\n    height: auto;\n    display: block;\n  }\n\n  .cta-box {\n    margin-top: 32px;\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    gap: 16px;\n    background: var(--cyan-glow);\n    padding: 22px 42px;\n    border-radius: 14px;\n    width: fit-content;\n    box-shadow: 0 10px 30px rgba(0, 229, 255, 0.4);\n  }\n\n  .cta-box .cta-text {\n    font-size: 28px;\n    font-weight: 800;\n    color: var(--navy-deep);\n  }\n`;\n\n// ============================================================\n// HTML FINAL\n// ============================================================\n\nlet html = '';\n\nif (tipo === 'hook') {\n  html = `\n    <div class=\"slide slide-hook\">\n      ${progressBar(progressPercent)}\n      ${topbar(tipo)}\n      <div class=\"content\">\n        <div class=\"content-card\">\n          <div class=\"titulo\">${tituloHtml}</div>\n          <div class=\"subtitulo\">${subtituloHtml}</div>\n          <div class=\"swipe-pill\">\n            <div class=\"txt\">deslize para aprender »»</div>\n          </div>\n        </div>\n      </div>\n      ${bottombar(numero, tipo)}\n    </div>\n  `;\n} else if (tipo === 'problema' || tipo === 'solucao') {\n  html = `\n    <div class=\"slide\">\n      ${progressBar(progressPercent)}\n      ${circuit('tl')}\n      ${!hasImg ? circuit('br') : ''}\n      ${topbar(tipo)}\n      <div class=\"content\">\n        <div class=\"content-card\">\n          ${tag(tipo)}\n          <div class=\"titulo\">${tituloHtml}</div>\n          ${conteudoApoioHtml}\n        </div>\n      </div>\n      ${\n        hasImg\n          ? `<div class=\"img-slot\"><img src=\"${escapeHtml(imagemBase64)}\" alt=\"\"></div>`\n          : ''\n      }\n      ${bottombar(numero, tipo)}\n    </div>\n  `;\n} else if (tipo === 'consequencia') {\n  html = `\n    <div class=\"slide\">\n      ${progressBar(progressPercent)}\n      ${circuit('tl')}\n      ${circuit('br')}\n      ${topbar(tipo)}\n      <div class=\"content\">\n        <div class=\"content-card\">\n          ${tag(tipo)}\n          <div class=\"titulo\">${tituloHtml}</div>\n          ${conteudoApoioHtml}\n        </div>\n      </div>\n      ${bottombar(numero, tipo)}\n    </div>\n  `;\n} else if (tipo === 'cta') {\n  html = `\n    <div class=\"slide slide-cta\">\n      ${progressBar(progressPercent)}\n      ${circuit('tl')}\n      ${topbar(tipo)}\n      <div class=\"content\">\n        <div class=\"content-card\">\n          <div class=\"titulo\">${tituloHtml}</div>\n          <div class=\"subtitulo\">${subtituloHtml}</div>\n          <div class=\"cta-box\">\n            <div class=\"cta-text\">Fale com a AgilDev →</div>\n          </div>\n        </div>\n      </div>\n      <div class=\"mascot-slot\">\n        <img src=\"${MASCOTE_URL}\" alt=\"Mascote AgilDev\">\n      </div>\n      ${bottombar(numero, tipo)}\n    </div>\n  `;\n} else {\n  throw new Error(`Tipo de slide desconhecido: \"${tipo}\"`);\n}\n\n// ============================================================\n// RETORNO\n// ============================================================\n\nreturn {\n  json: {\n    html,\n    css,\n    numero\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2544,
+        -16
+      ],
+      "id": "d031590a-61e1-4947-a8d0-a2e8d9d06774",
+      "name": "Montar HTML do Slide"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hcti.io/v1/image",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{\n  {\n    html: $json.html,\n    css: $json.css,\n    device_scale_factor: 2,\n    viewport_width: 1080,\n    viewport_height: 1350\n  }\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        2752,
+        -16
+      ],
+      "id": "02d2d64b-9233-4daa-85fd-4903a3c092a3",
+      "name": "Renderizar PNG (HCTI)"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "imagens_slides",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2960,
+        -16
+      ],
+      "id": "805884c3-8bc2-48a5-a326-2b80cc8b3932",
+      "name": "Aggregate Slides"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "role": "system",
+              "content": "Você é um especialista em Copywriting para Instagram focado em B2B, Inteligência Artificial e Automação de Processos para a empresa AgilDev.\n\nEscreva a legenda do Instagram para este carrossel da AgilDev.\n\nDIRETRIZES DE TOM E ESTILO:\n\n* Tom profissional, direto, humano, empresarial e educativo.\n* Jamais use termos clichês de IA (ex: \"No mundo dinâmico de hoje\", \"Embarque nessa jornada\", \"Desvende os segredos\", \"Revolucione\").\n* A legenda deve COMPLEMENTAR o carrossel, aprofundando o valor do assunto sem repetir o texto dos slides word-for-word.\n* Formatação limpa, usando quebras de linha para facilitar a leitura no celular.\n* Não colocar * na legenda.\n* Evite textos longos. A legenda deve ser objetiva e fácil de consumir no celular.\n* Não crie introduções genéricas ou frases de efeito apenas para aumentar o tamanho da legenda.\n\nHASHTAGS:\n\n* Use NO MÁXIMO 5 hashtags.\n* Prefira 3 a 5 hashtags altamente relevantes para o tema do carrossel.\n* Nunca ultrapasse 5 hashtags.\n* Não crie blocos extensos de hashtags.\n* Não use hashtags genéricas ou desconectadas do conteúdo apenas para tentar aumentar o alcance.\n* Priorize hashtags relacionadas ao tema, nicho e público B2B da AgilDev.\n* As hashtags devem aparecer somente no final da legenda.\n\nCTA:\n\n* Finalize OBRIGATORIAMENTE com uma CTA chamando o leitor para comentar uma palavra-chave para receber mais informações no direct.\n* Exemplo: \"Comente 'AUTOMAÇÃO' que te enviamos os detalhes no direct.\"\n\nIMPORTANTE:\n\n* Entregue SOMENTE a legenda final.\n* Não explique suas escolhas.\n* Não adicione títulos como \"Legenda:\".\n* Não adicione observações.\n* Não ultrapasse 5 hashtags."
+            },
+            {
+              "content": "=Tema do Carrossel: {{ $('Parse JSON Carrossel').item.json.tema }}\n\nPontos abordados nos slides:\n{{ JSON.stringify($('Parse JSON Carrossel').item.json.slides) }}\n\nCrie a legenda completa (incluindo Emojis estratégicos e Hashtags relevantes ao final)."
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.3,
+      "position": [
+        3168,
+        -16
+      ],
+      "id": "85b03184-e0ce-48bc-89e1-d4ff7c8a382f",
+      "name": "GPT Legenda"
+    },
+    {
+      "parameters": {
+        "tableId": "posts_historico",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "tema",
+              "fieldValue": "={{ $('Parse JSON Carrossel').item.json.tema }}"
+            },
+            {
+              "fieldId": "angulo",
+              "fieldValue": "={{ $('GPT Estrategista').item.json.output[0].content[0].text }}"
+            },
+            {
+              "fieldId": "objetivo",
+              "fieldValue": "={{ $('Parse JSON Carrossel').item.json.objetivo }}"
+            },
+            {
+              "fieldId": "slides_json",
+              "fieldValue": "={{ JSON.stringify($('Parse JSON Carrossel').item.json.slides) }}"
+            },
+            {
+              "fieldId": "legenda",
+              "fieldValue": "={{ $json.output[0].content[0].text }}"
+            },
+            {
+              "fieldId": "hashtags",
+              "fieldValue": "={{ $('Parse JSON Carrossel').item.json.hashtags }}"
+            },
+            {
+              "fieldId": "imagens_urls",
+              "fieldValue": "={{ $('Aggregate Slides').item.json.imagens_slides }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        3520,
+        -16
+      ],
+      "id": "2e83c3e3-89cd-49e5-ac0c-7b21aace831d",
+      "name": "Salvar no Histórico"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4555ba2e-3795-4c42-ba89-a5ac310417ad",
+              "name": "imagem_base64",
+              "value": "\"\"",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1712,
+        80
+      ],
+      "id": "8e8f51de-9f32-402f-abcc-b2bb17abf60a",
+      "name": "Preparar Slide Sem Imagem"
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "numero"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        2272,
+        -16
+      ],
+      "id": "cbeb2374-21a4-4ac0-a13e-1e8d6970a811",
+      "name": "Ordenar Slides"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const imagem = $json.data?.[0]?.b64_json;\n\nif (!imagem) {\n  throw new Error('A OpenAI não retornou b64_json.');\n}\n\nreturn {\n  json: {\n    numero: $('Split Slides').item.json.numero,\n    tipo: $('Split Slides').item.json.tipo,\n    titulo: $('Split Slides').item.json.titulo,\n    subtitulo: $('Split Slides').item.json.subtitulo,\n    precisa_imagem: $('Split Slides').item.json.precisa_imagem,\n    prompt_imagem: $('Split Slides').item.json.prompt_imagem,\n    imagem_base64: `data:image/png;base64,${imagem}`\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1824,
+        -112
+      ],
+      "id": "c07fb7f7-a78a-4f02-a6e3-4fad0b515ef2",
+      "name": "Code in JavaScript",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const temasRecentes = $input.all()\n  .map(item => item.json.tema)\n  .filter(tema => typeof tema === 'string' && tema.trim() !== '')\n  .map(tema => tema.trim());\n\nreturn [\n  {\n    json: {\n      temas_recentes: temasRecentes\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -288,
+        0
+      ],
+      "id": "0bfb9b5b-c9d8-4134-b85d-8f57798a60da",
+      "name": "Consolidar Temas Recentes"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\nif (items.length === 0) {\n  throw new Error('GPT Estrategista não retornou nenhum item.');\n}\n\nif (items.length > 1) {\n  throw new Error(\n    `GPT Estrategista retornou ${items.length} itens. Esperado: 1.`\n  );\n}\n\nconst item = items[0].json;\n\n// O node OpenAI pode devolver o texto em diferentes estruturas.\n// Tentamos primeiro a estrutura usada pelo seu fluxo atual.\nlet tema = '';\n\nif (\n  item.output &&\n  Array.isArray(item.output) &&\n  item.output[0]?.content &&\n  Array.isArray(item.output[0].content)\n) {\n  const content = item.output[0].content;\n\n  const outputText = content.find(\n    c => c.type === 'output_text'\n  );\n\n  if (outputText?.text) {\n    tema = outputText.text;\n  }\n}\n\n// Fallback caso o node já tenha colocado o texto diretamente.\nif (!tema && typeof item.text === 'string') {\n  tema = item.text;\n}\n\nif (!tema && typeof item.output_text === 'string') {\n  tema = item.output_text;\n}\n\ntema = String(tema || '')\n  .trim()\n  .replace(/^[\"']|[\"']$/g, '')\n  .replace(/\\s+/g, ' ');\n\nif (!tema) {\n  throw new Error(\n    'GPT Estrategista não retornou um tema válido.'\n  );\n}\n\nreturn [\n  {\n    json: {\n      tema\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        336,
+        0
+      ],
+      "id": "ed3dba38-cab3-4679-b304-aa77b23e30cd",
+      "name": "Preparar Tema para Roteirista"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 9 * * 1,4"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -880,
+        0
+      ],
+      "id": "0d8af52d-d273-4061-bcad-503d7f96c1c7",
+      "name": "Cron - Segunda e Quinta"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "GPT Estrategista": {
+      "main": [
+        [
+          {
+            "node": "Preparar Tema para Roteirista",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar Temas Recentes": {
+      "main": [
+        [
+          {
+            "node": "Consolidar Temas Recentes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GPT Roteirista": {
+      "main": [
+        [
+          {
+            "node": "Parse JSON Carrossel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse JSON Carrossel": {
+      "main": [
+        [
+          {
+            "node": "Split Slides",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Slides": {
+      "main": [
+        [
+          {
+            "node": "IF Precisa Imagem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF Precisa Imagem": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Preparar Slide Sem Imagem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Ordenar Slides",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Montar HTML do Slide": {
+      "main": [
+        [
+          {
+            "node": "Renderizar PNG (HCTI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Renderizar PNG (HCTI)": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Slides",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Slides": {
+      "main": [
+        [
+          {
+            "node": "GPT Legenda",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GPT Legenda": {
+      "main": [
+        [
+          {
+            "node": "Salvar no Histórico",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar Slide Sem Imagem": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Ordenar Slides": {
+      "main": [
+        [
+          {
+            "node": "Montar HTML do Slide",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Consolidar Temas Recentes": {
+      "main": [
+        [
+          {
+            "node": "GPT Estrategista",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar Tema para Roteirista": {
+      "main": [
+        [
+          {
+            "node": "GPT Roteirista",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cron - Segunda e Quinta": {
+      "main": [
+        [
+          {
+            "node": "Buscar Temas Recentes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "nodeGroups": [],
+  "tags": []
+}
