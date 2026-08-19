@@ -1,10 +1,30 @@
-<div align="center" style="background-color: #051d41; padding: 40px; border-radius: 10px; margin-bottom: 20px;">
-  <img src="docs/AgilDev - Logo.png" alt="AgilDev Logo" width="280" />
-  <h2 style="color: #ffffff; margin-top: 15px; font-family: sans-serif; font-weight: 600;">AI Content Automation Pipeline</h2>
-  <p style="color: #a0aec0; font-family: sans-serif; font-size: 14px;">
-    <code>Strategy</code> &nbsp;→&nbsp; <code>Generation</code> &nbsp;→&nbsp; <code>Rendering</code> &nbsp;→&nbsp; <code>Approval</code>
-  </p>
-</div>
+<p align="center">
+  <a href="#">
+    <img src="docs/AgilDev - Logo.jpg" alt="AgilDev Logo" width="220" />
+  </a>
+</p>
+
+<h1 align="center">AgilDev — AI Content Automation Pipeline</h1>
+
+<p align="center">
+  <b>Strategy</b> &nbsp;•&nbsp; 
+  <b>Generation</b> &nbsp;•&nbsp; 
+  <b>Rendering</b> &nbsp;•&nbsp; 
+  <b>Approval</b>
+</p>
+
+<p align="center">
+  Pipeline de automação de conteúdo baseado em IA, responsável por transformar uma pauta em um carrossel estruturado, renderizado e preparado para aprovação.
+</p>
+
+<p align="center">
+  <a href="https://n8n.io/"><img src="https://img.shields.io/badge/n8n-Automation-FF6D5A?style=flat-square&logo=n8n&logoColor=white" alt="n8n" /></a>
+  <a href="https://openai.com/"><img src="https://img.shields.io/badge/OpenAI-LLM-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI" /></a>
+  <a href="https://supabase.com/"><img src="https://img.shields.io/badge/Supabase-Database-3ECF8E?style=flat-square&logo=supabase&logoColor=white" alt="Supabase" /></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://img.shields.io/badge/JavaScript-Workflow%20Logic-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript" /></a>
+</p>
+
+---
 
 # AgilDev - Automações & I.A — AI Content Automation Pipeline
 
