@@ -72,7 +72,7 @@ graph TD
     I -->|Webhook Trigger| J[Approval Workflow]
     J -->|Validação Secret| K[Uazapi WhatsApp API]
     K --> L[Aprovação Humana]
-
+```
 ---
 
 ## 🖼️ Visualização dos Criativos Gerados
